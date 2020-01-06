@@ -28,6 +28,9 @@ public class Football : MonoBehaviour
     }
     public void ResetPosition()
     {
+        // Play sound
+        AudioManager.Instance.PlaySound(Sounds.bounce);
+
         // Disable trail renderer, prevent visual bug
         trailRenderer.enabled = false;
 

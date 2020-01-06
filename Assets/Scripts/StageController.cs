@@ -116,6 +116,9 @@ public class StageController : MonoBehaviour
             m_Timer += Time.deltaTime;
             if (m_Timer >= 0.35f)
             {
+                // Play kick sounds
+                AudioManager.Instance.PlaySound(Sounds.kick);
+
                 // Calculate ball direction
                 var direction = (gateHitBox.GetRandomPosition(difficulty) - football.transform.position).normalized;
 
@@ -151,6 +154,9 @@ public class StageController : MonoBehaviour
     }
     private void StageEnd(bool won)
     {
+        // Play result sounds
+        AudioManager.Instance.PlaySound(won ? Sounds.won : Sounds.lost);
+
         // Resetting canShoot parameter
         footballPlayer.animator.SetBool("canShoot", false);
 
